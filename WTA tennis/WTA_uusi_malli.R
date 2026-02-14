@@ -14,7 +14,7 @@ options(brms.backend = "cmdstanr")
 setwd("~/R-koodi/SportBetting")
 #nämä siirretty tiedostosta score_parseri_kolmas_set_prob. 
 #Siellä voi kirjoittaa wta_matches_parsed_valmiiksi ja lukea sitten täällä
-wta_matches_parsed <- read_csv2(paste0(getwd(),"/Tennis/WTA/wta_matches_parsed.csv"))
+wta_matches_parsed <- read_csv2(paste0(getwd(),"/WTA tennis/Data/wta_matches_parsed.csv"))
 
 wta_matches_parsed <- wta_matches_parsed %>% 
   filter(tourney_level %in% c("G", "P", "M", "A", "I", "F"))
@@ -510,7 +510,7 @@ saveRDS(wta_model_data, "~/R-koodi/SportBetting/WTA tennis/Models/wta_model_data
 saveRDS(wta_model_data_long, "~/R-koodi/SportBetting/WTA tennis/Models/wta_model_data_long.rds")
 
 #Kirjoitetaan talteen mallit, jotta ei tarvitse kääntää, jos R kaatuu
-setwd("~/R-koodi/SportBetting/WTA tennis/Models/Uusi malli")
+setwd("~/R-koodi/SportBetting/WTA tennis/Models/")
 
 # saveRDS(tiebreak_fit, "~/R-koodi/SportBetting/WTA tennis/Models/wta_tiebreak_fit.rds")
 # saveRDS(third_set_fit, "~/R-koodi/SportBetting/WTA tennis/Models/wta_third_set_fit.rds")
