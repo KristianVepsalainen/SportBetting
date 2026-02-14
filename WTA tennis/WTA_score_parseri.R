@@ -4,7 +4,7 @@
 
 library(tidyverse)
 
-wta_matches_raw <- read_csv2(paste0(getwd(),"/Tennis/WTA/wta_matches_raw.csv"))
+wta_matches_raw <- read_csv2(paste0(getwd(),"TA tennis/Data/wta_matches_raw.csv"))
 
 # ------------------------------------------------------------
 # 1. Parse single set score (e.g. "7-6(5)" -> c(7, 6))
@@ -68,7 +68,7 @@ wta_matches_parsed <- wta_matches_raw %>%
   
   unnest(parsed)
 
-write.csv2(wta_matches_parsed,file = paste0(getwd(),"/Tennis/WTA/wta_matches_parsed.csv"),row.names = F)
+write.csv2(wta_matches_parsed,file = paste0(getwd(),"WTA tennis/Data/wta_matches_parsed.csv"),row.names = F)
 
 
 

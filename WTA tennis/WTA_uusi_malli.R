@@ -11,7 +11,7 @@ Sys.setenv(STAN_NUM_THREADS = 4)
 
 
 options(brms.backend = "cmdstanr")
-setwd("~/R-koodi/Urheiluvedonlyönti")
+setwd("~/R-koodi/SportBetting")
 #nämä siirretty tiedostosta score_parseri_kolmas_set_prob. 
 #Siellä voi kirjoittaa wta_matches_parsed_valmiiksi ja lukea sitten täällä
 wta_matches_parsed <- read_csv2(paste0(getwd(),"/Tennis/WTA/wta_matches_parsed.csv"))
@@ -441,8 +441,8 @@ third_set_fit <- brm(
   )
 )
 
-#saveRDS(tiebreak_fit, "~/R-koodi/Urheiluvedonlyönti/Tennis/WTA/Uusi malli/tiebreak_fit.rds")
-saveRDS(third_set_fit, "~/R-koodi/Urheiluvedonlyönti/Tennis/WTA/Uusi malli/third_set_fit.rds")
+#saveRDS(tiebreak_fit, "~/R-koodi/SportBetting/WTA tennis/Models/tiebreak_fit.rds")
+saveRDS(third_set_fit, "~/R-koodi/SportBetting/WTA tennis/Models/hird_set_fit.rds")
 
 rm(third_set_fit)
 rm(tiebreak_fit)
@@ -505,19 +505,19 @@ total_games_fit <- brm(
     max_treedepth = 12
   )
 )
-saveRDS(total_games_fit, "~/R-koodi/Urheiluvedonlyönti/Tennis/WTA/Uusi malli/total_games_fit.rds")
-saveRDS(wta_model_data, "~/R-koodi/Urheiluvedonlyönti/Tennis/WTA/Uusi malli/wta_model_data.rds")
-saveRDS(wta_model_data_long, "~/R-koodi/Urheiluvedonlyönti/Tennis/WTA/Uusi malli/wta_model_data_long.rds")
+saveRDS(total_games_fit, "~/R-koodi/SportBetting/WTA tennis/Models/total_games_fit.rds")
+saveRDS(wta_model_data, "~/R-koodi/SportBetting/WTA tennis/Models/wta_model_data.rds")
+saveRDS(wta_model_data_long, "~/R-koodi/SportBetting/WTA tennis/Models/wta_model_data_long.rds")
 
 #Kirjoitetaan talteen mallit, jotta ei tarvitse kääntää, jos R kaatuu
-setwd("~/R-koodi/Urheiluvedonlyönti/Tennis/WTA/Uusi malli")
+setwd("~/R-koodi/SportBetting/WTA tennis/Models/Uusi malli")
 
-# saveRDS(tiebreak_fit, "~/R-koodi/Urheiluvedonlyönti/Tennis/WTA/Uusi malli/wta_tiebreak_fit.rds")
-# saveRDS(third_set_fit, "~/R-koodi/Urheiluvedonlyönti/Tennis/WTA/Uusi malli/wta_third_set_fit.rds")
+# saveRDS(tiebreak_fit, "~/R-koodi/SportBetting/WTA tennis/Models/wta_tiebreak_fit.rds")
+# saveRDS(third_set_fit, "~/R-koodi/SportBetting/WTA tennis/Models/wta_third_set_fit.rds")
 
 
-saveRDS(wta_player_features, "~/R-koodi/Urheiluvedonlyönti/Tennis/WTA/Uusi malli/wta_player_features.rds")
-saveRDS(wta_player_set_features, "~/R-koodi/Urheiluvedonlyönti/Tennis/WTA/Uusi malli/wta_player_set_features.rds")
+saveRDS(wta_player_features, "~/R-koodi/SportBetting/WTA tennis/Models/wta_player_features.rds")
+saveRDS(wta_player_set_features, "~/R-koodi/SportBetting/WTA tennis/Models/wta_player_set_features.rds")
 
 
 #Listaus turnausten tasoista:

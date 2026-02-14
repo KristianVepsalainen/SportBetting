@@ -84,4 +84,4 @@ wta_matches_raw <- load_wta_matches()
 # Quick sanity check
 glimpse(wta_matches_raw)
 
-write.csv2(wta_matches_raw, paste0(getwd(),"/Tennis/WTA/wta_matches_raw.csv"), row.names = F)
+write.csv2(wta_matches_raw, paste0(getwd(),"/WTA tennis/Data/wta_matches_raw.csv"), row.names = F)
