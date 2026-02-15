@@ -14,3 +14,4 @@
 /WTA tennnis/Data/*
 
 /WTA tennnis/Models/*
+*.sqlite
