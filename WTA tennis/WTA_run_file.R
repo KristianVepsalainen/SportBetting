@@ -26,6 +26,8 @@ con <- dbConnect(RSQLite::SQLite(), "Vedonlyonti.sqlite")
 # ---------------------------------------------------------
 # Ladataan mallit (EI MUUTOKSIA)
 # ---------------------------------------------------------
+setwd("~/R-koodi/SportBetting/WTA tennis/Models")
+
 third_set_fit  <- readRDS("third_set_fit.rds")
 total_games_fit <- readRDS("total_games_fit.rds")
 tiebreak_fit   <- readRDS("tiebreak_fit.rds")

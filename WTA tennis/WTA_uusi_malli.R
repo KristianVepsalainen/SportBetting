@@ -442,7 +442,7 @@ third_set_fit <- brm(
 )
 
 #saveRDS(tiebreak_fit, "~/R-koodi/SportBetting/WTA tennis/Models/tiebreak_fit.rds")
-saveRDS(third_set_fit, "~/R-koodi/SportBetting/WTA tennis/Models/hird_set_fit.rds")
+saveRDS(third_set_fit, "~/R-koodi/SportBetting/WTA tennis/Models/third_set_fit.rds")
 
 rm(third_set_fit)
 rm(tiebreak_fit)
