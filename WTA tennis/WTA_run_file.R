@@ -30,7 +30,7 @@ setwd("~/R-koodi/SportBetting/WTA tennis/Models")
 
 third_set_fit  <- readRDS("third_set_fit.rds")
 total_games_fit <- readRDS("total_games_fit.rds")
-tiebreak_fit   <- readRDS("tiebreak_fit.rds")
+#tiebreak_fit   <- readRDS("tiebreak_fit.rds")
 
 # ---------------------------------------------------------
 # Ladataan data (EI MUUTOKSIA)
@@ -172,3 +172,27 @@ evaluate_wta_totals_bet <- function(
     tail_p_far_over = tail_metrics$p_far_over
   )
 }
+
+results <- evaluate_wta_totals_bet(
+  player_a = "Aliaksandra Sasnovich",
+  player_b = "Alexandra Eala",
+  surface = "Hard",
+  ou_line = 21.5,
+  odds_over = 1.961,
+  odds_under = 1.952,
+  bankroll = 87.96,
+  wta_player_features = wta_player_features,
+  wta_player_set_features = wta_player_set_features,
+  # wta_model_data_long = wta_model_data_long,
+  # wta_model_data = wta_model_data,
+  third_set_fit = third_set_fit,
+  total_games_fit = total_games_fit
+) 
+
+print(results, width = Inf)
+#lisätään tietokantaan
+dbWriteTable(con, "WTA", results %>% mutate(created_at = now(tzone = "UTC")), append = TRUE, row.names = FALSE)
+
+#Etsi pelaajaa
+wta_player_features %>% filter(grepl("Eala",player,ignore.case = T)) %>% pull(player) %>% unique() 
+
