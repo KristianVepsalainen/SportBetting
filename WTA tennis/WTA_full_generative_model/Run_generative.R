@@ -1,6 +1,6 @@
 setwd("~/R-koodi/SportBetting/WTA tennis/WTA_full_generative_model")
 # Lataa raakadata
-wta_raw <- read.csv("wta_matches_raw.csv")
+wta_raw <- read.csv2("wta_matches_raw.csv")
 
 # 1. Valmistele hold-data
 hold_df <- prepare_hold_data(wta_raw)
