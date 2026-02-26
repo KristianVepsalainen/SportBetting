@@ -63,7 +63,6 @@ prepare_hold_data <- function(wta_matches_raw, lambda = 0.0025) {
 # =========================================================
 # 2. FIT HOLD MODEL (SURFACE-SPECIFIC + TIME DECAY)
 # =========================================================
-
 fit_hold_model <- function(hold_df) {
   
   brm(
@@ -72,21 +71,23 @@ fit_hold_model <- function(hold_df) {
       surface +
       (1 | server) +
       (1 | returner) +
-      (0 + surface | server) +
-      (0 + surface | returner),
+      (0 + surface | server),
     
     data = hold_df,
     family = Beta(),
+    
     prior = c(
       prior(normal(0, 1), class = "b"),
       prior(normal(0, 0.5), class = "sd")
     ),
-    chains = 4,
-    cores = 4,
-    iter = 3000,
-    control = list(adapt_delta = 0.95)
+    
+    chains = 2,
+    cores = 2,
+    iter = 2000,
+    control = list(adapt_delta = 0.9)
   )
 }
+
 
 # =========================================================
 # 3. HOLD DRAWS FOR MATCH
